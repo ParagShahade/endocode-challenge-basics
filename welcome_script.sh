@@ -2,4 +2,4 @@
 
 echo "Hello, $USER"
 echo "Today's date is `date`"
-echo "`curl https://wttr.in/berlin`"
+echo "Today's weather `curl https://wttr.in/berlin`"
