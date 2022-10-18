@@ -4,14 +4,20 @@ async function loadToTable(url,table) {
     const tableBody = table.querySelector("tbody");
     const response = await fetch(url);
     const {search_results} = await response.json();
-   // console.log(ebay_data);
+    console.log(ebay_data);
    tableHead.innerHTML = "<tr></tr>";
    tableBody.innerHTML = "";
 
-   for (const headerText of headers){
-    const headerElement = document.createElement("th");
-    headerElement.textContent = headerText;
-    tableHead.querySelector("tr").appendChild(headerElement);
+   for (const search_res of search_results){
+    const rowElement = document.createElement("tr");
+
+    for (const celltext of search_res){
+        const cellElement = document.createElement("td");
+        cellElement.textContent = celltext;
+        rowElement.appendChild(cellElement);
+
+    }
+    tableBody.appendChild(rowElement);
    }
 }
 
